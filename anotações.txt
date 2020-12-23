@@ -1,0 +1,18 @@
+Referência:
+   https://www.youtube.com/watch?v=xj2xPJJHp5U
+
+Comandos:
+
+   docker build -t eduardobilato/nginx-watchtower .
+
+   docker run -d -p 8080:80 --name nginx eduardobilato/nginx-watchtower:latest
+
+   docker logs nginx
+
+   docker push eduardobilato/nginx-watchtower
+
+   docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower --debug --interval 15
+
+
+Documentação
+   https://containrrr.dev/watchtower/
