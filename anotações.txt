@@ -3,16 +3,23 @@ Referência:
 
 Comandos:
 
-   docker build -t eduardobilato/nginx-watchtower .
+   criar a imagem
+      docker build -t eduardobilato/nginx-watchtower .
 
-   docker run -d -p 8080:80 --name nginx eduardobilato/nginx-watchtower:latest
+   sobe pro dockerhub
+      docker push eduardobilato/nginx-watchtower
 
-   docker logs nginx
+   rodar o container
+      docker run -d -p 8080:80 --name nginx eduardobilato/nginx-watchtower:latest
 
-   docker push eduardobilato/nginx-watchtower
+   o container tá rodando nesse ponto.
+   o watchtower deverá rodar juntamente com o(s) container(s) que subiu(ram), pra que ele "saiba" quem ele deverá monitorar.
 
-   docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower --debug --interval 15
+   watchtower
+      docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower --debug --interval 15
 
+   verificar logs
+      docker logs nginx
 
 Documentação
    https://containrrr.dev/watchtower/
